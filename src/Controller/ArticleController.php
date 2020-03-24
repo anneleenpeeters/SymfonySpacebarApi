@@ -18,6 +18,7 @@ class ArticleController extends AbstractController
         return new Response('OMG! My first page already!');
     }
 
+
     /**
      * @Route("/news/{slug}")
      */
@@ -27,11 +28,13 @@ class ArticleController extends AbstractController
             'Jow swag dit is anneleen',
             'comments over here',
         ];
-
+        dump( $slug, $this );
         return $this->render('article/show.html.twig', [
             'title' => ucwords(str_replace('-', ' ', $slug)),
             'comments' => $comments,
         ]);
+
+
     }
 }
 
